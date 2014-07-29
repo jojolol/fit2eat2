@@ -1,3 +1,13 @@
 body {
-	background: #c4d8ff;
+	background: #f1f1f1;
+}
+
+p {
+	font-family: "Trebuchet MS", helvetica, sans-serif
+}
+h1 {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+}
+h4 {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
 }
