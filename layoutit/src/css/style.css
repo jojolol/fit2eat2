@@ -3,11 +3,24 @@ body {
 }
 
 p {
-	font-family: "Trebuchet MS", helvetica, sans-serif
+	font-family: "Trebuchet MS", helvetica, sans-serif;
+	color: #33ccff;
 }
 h1 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 h4 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+img{
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+
+.navbar-header {
+	background-color: #f1f1f1
+}
+.navbar-inverse {
+	background-color: #f1f1f1
 }
