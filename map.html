@@ -29,7 +29,13 @@
   
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"> </script>
 	<script type="text/javascript" src="js/scripts.js"></script>
+	<style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
 </head>
 
 <body>
@@ -42,12 +48,14 @@
 			<p>
 				<small>check out all the restaurants based on location!</small>
 			</p>
+			
 		</div>
 	</div>
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 		</div>
 	</div>
-</div>
+	</div>
+	<div id="map-canvas"/>
 </body>
 </html>
