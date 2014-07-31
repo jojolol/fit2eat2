@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Bootstrap 3, from LayoutIt!</title>
+  <title>fit2eat | Restaurants</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -31,6 +31,7 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"> </script>
 	<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="js/ratings.js"></script>
 	<style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
@@ -57,5 +58,26 @@
 	</div>
 	</div>
 	<div id="map-canvas"/>
+
+    <script type='text/javascript'>
+    var map = null;
+    $(document).ready(function(){
+        var postcode = QueryString.postcode;
+        console.log(postcode);
+        
+        ratings(postcode, function(clat, clong) {
+            if (map != null)
+                return;
+                
+            var mapOptions = {
+              center: new google.maps.LatLng(clat, clong),
+              zoom: 13
+            };
+
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        });
+    });
+    </script>
+
 </body>
 </html>
