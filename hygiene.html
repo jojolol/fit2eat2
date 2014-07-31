@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Bootstrap 3, from LayoutIt!</title>
+  <title>fit2eat | Restaurant Ratings</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -30,6 +30,7 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="js/ratings.js"></script>
 </head>
 
 <body>
@@ -44,6 +45,18 @@
 			</p>
 		</div>
 	</div>
+    <div id='restaurant_list'></div>
 </div>
+
+
+    <script type='text/javascript'>
+    $(document).ready(function(){
+        var rating = QueryString.rating;
+        hygiene("ox1", 5, function(name,rating){
+            $('#restaurant_list').append('<p><img src="img/' + rating + 'star.png" />'+name+'</p>');
+        });
+    });
+    </script>
+
 </body>
 </html>

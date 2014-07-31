@@ -21,7 +21,7 @@ var QueryString = function () {
     return query_string;
 } ();
 
-function ratings(postcode, fn)
+function process_json(postcode, fn)
 {
     var proxy    = 'http://cdmh.co.uk/proxy.php';
     var ratings  = 'http://ratings.food.gov.uk/enhanced-search/en-GB/%5E/'+postcode+'/Relevance/0/%5E/%5E/1/1/10/json';
@@ -33,23 +33,38 @@ function ratings(postcode, fn)
             u: ratings,
             format:'jsonp'
         },
-        function(data, status) {
-            num = data['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail'].length;
-            console.log(num);
-            $.each(data['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail'], function(index, value){
-                var l1 = value.Geocode.Latitude;
-                var l2 = value.Geocode.Longitude;
-                fn(l1,l2);
-
-                new google.maps.Marker({
-                    position: new google.maps.LatLng(value.Geocode.Latitude, value.Geocode.Longitude),
-                    map: map,
-                    title: value.BusinessName
-                });
-            });
-        })
+        fn)
         .fail(function(a){
             console.log("fail");
             console.log(a);
         });
+}
+
+function ratings(postcode, fn)
+{
+    process_json(postcode, function(data, status) {
+        num = data['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail'].length;
+        $.each(data['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail'], function(index, value){
+            var l1 = value.Geocode.Latitude;
+            var l2 = value.Geocode.Longitude;
+            fn(l1,l2);
+
+            new google.maps.Marker({
+                position: new google.maps.LatLng(value.Geocode.Latitude, value.Geocode.Longitude),
+                map: map,
+                title: value.BusinessName
+            });
+        });
+    });
+}
+
+function hygiene(postcode, rating, fn)
+{
+    process_json('ox1', function(data, status) {
+        $.each(data['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail'], function(index, value){
+            console.log(value);
+            //if (rating == parseInt(value.RatingValue))
+                fn(value.BusinessName, rating);
+        });
+    });
 }
