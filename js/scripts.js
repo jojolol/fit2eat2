@@ -9,14 +9,17 @@ function initialize() {
 //begin alterations 
         var json = (function () { 
             var json = null; 
-                $.ajax({ 
-                    'async': false, 
-                    'global': false, 
-                    'url': "http://ratings.food.gov.uk/enhanced-search/en-GB/%5E/ox1/Relevance/0/%5E/%5E/1/1/10/json", 
-                    'dataType': "json", 
-                    'success': function (data) {
-                     json = data; } }); 
-                return json;})(); 
+            $.ajax({ 
+                'async': false, 
+                'global': false, 
+                'url': "", 
+                'dataType': "json", 
+                'success': function (data) {
+                 json = data; 
+                } 
+            });
+            return json;
+        })(); 
 
 
 //loop through, extracting information for each marker
@@ -32,6 +35,29 @@ for (var i = 0, length = json.length; i < length; i++) {
       });
   }
 
+var infoWindow = new google.maps.InfoWindow();
+
+// Attaching a click event to the current marker
+google.maps.event.addListener(marker, "click", function(e) {
+  infoWindow.setContent(data.description);
+  infoWindow.open(map, marker);
+});
+
+// Creating a closure to retain the correct data 
+//Note how I pass the current data in the loop into the closure (marker, data)
+(function(marker, data) {
+
+  // Attaching a click event to the current marker
+  google.maps.event.addListener(marker, "click", function(e) {
+    infoWindow.setContent(data.description);
+    infoWindow.open(map, marker);
+  });
+
+})(marker, data);
+
+
+
+      }
 //end alterations
 
 //original code
