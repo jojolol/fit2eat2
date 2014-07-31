@@ -29,7 +29,6 @@
   
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
 	<script type="text/javascript" src="js/ratings.js"></script>
 </head>
 
@@ -52,7 +51,7 @@
     <script type='text/javascript'>
     $(document).ready(function(){
         var rating = QueryString.rating;
-        hygiene("ox1", 5, function(name,rating){
+        hygiene(5, function(name,rating){
             $('#restaurant_list').append('<p><img src="img/' + rating + 'star.png" />'+name+'</p>');
         });
     });
