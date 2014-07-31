@@ -61,9 +61,10 @@ function ratings(postcode, fn)
 function hygiene(rating, fn)
 {
     var restaurant = function(data, status) {
+        console.log("Filtering to " + rating);
         $.each(data['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail'], function(index, value){
             console.log(value.RatingValue);
-            //if (rating == parseInt(value.RatingValue))
+            if (rating == value.RatingValue)
                 fn(value.BusinessName + ', ' + value.PostCode, value.RatingValue);
         });
     };

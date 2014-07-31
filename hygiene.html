@@ -51,7 +51,7 @@
     <script type='text/javascript'>
     $(document).ready(function(){
         var rating = QueryString.rating;
-        hygiene(5, function(name,rating){
+        hygiene(rating, function(name,rating){
             $('#restaurant_list').append('<p><img src="img/' + rating + 'star.png" />'+name+'</p>');
         });
     });
