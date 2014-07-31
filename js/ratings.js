@@ -58,13 +58,18 @@ function ratings(postcode, fn)
     });
 }
 
-function hygiene(postcode, rating, fn)
+function hygiene(rating, fn)
 {
-    process_json('ox1', function(data, status) {
+    var restaurant = function(data, status) {
         $.each(data['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail'], function(index, value){
-            console.log(value);
+            console.log(value.RatingValue);
             //if (rating == parseInt(value.RatingValue))
-                fn(value.BusinessName, rating);
+                fn(value.BusinessName + ', ' + value.PostCode, value.RatingValue);
         });
-    });
+    };
+    process_json('ox1', restaurant);
+    process_json('ox2', restaurant);
+    process_json('pl1', restaurant);
+    process_json('pl4', restaurant);
+    process_json('rg4', restaurant);
 }
