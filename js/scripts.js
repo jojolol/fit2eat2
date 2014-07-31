@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(51.7397156, -1.254819),
@@ -71,3 +72,5 @@ google.maps.event.addListener(marker, "click", function(e) {
   
       
       google.maps.event.addDomListener(window, 'load', initialize);
+=======
+>>>>>>> pr/1
