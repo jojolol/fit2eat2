@@ -1,3 +1,4 @@
+// this extracts the 'arguments' from the url. the arguments is what is added from 'form + submit'
 var QueryString = function () {
   // This function is anonymous, is executed immediately and 
   // the return value is assigned to QueryString!
@@ -20,7 +21,7 @@ var QueryString = function () {
   } 
     return query_string;
 } ();
-
+// get geodata with restaurants being 'elements' in an array and calls back to 'fn' 
 function process_json(postcode, fn)
 {
     var proxy    = 'http://cdmh.co.uk/proxy.php';
@@ -39,16 +40,19 @@ function process_json(postcode, fn)
             console.log(a);
         });
 }
-
+//this uses 'process_json' and reads all 'elements' to find long,lat then putting a pin on map
 function ratings(postcode, fn)
 {
     process_json(postcode, function(data, status) {
+        // how data is formatted
         num = data['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail'].length;
         $.each(data['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail'], function(index, value){
+            // each element, get lat,long
             var l1 = value.Geocode.Latitude;
             var l2 = value.Geocode.Longitude;
+            //call back funtion to set pin
             fn(l1,l2);
-
+            // this creates pin with data
             new google.maps.Marker({
                 position: new google.maps.LatLng(value.Geocode.Latitude, value.Geocode.Longitude),
                 map: map,
@@ -57,7 +61,7 @@ function ratings(postcode, fn)
         });
     });
 }
-
+// finds all 'elements' with spec. rating you searched for
 function hygiene(rating, fn)
 {
     var restaurant = function(data, status) {
@@ -68,6 +72,7 @@ function hygiene(rating, fn)
                 fn(value.BusinessName + ', ' + value.PostCode, value.RatingValue);
         });
     };
+    // to much data, narrowed down to pl, ox + rg for demo.
     process_json('ox1', restaurant);
     process_json('ox2', restaurant);
     process_json('pl1', restaurant);
