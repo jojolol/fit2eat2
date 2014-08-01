@@ -2,16 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Bootstrap 3, from LayoutIt!</title>
+  <title>FIT2EAT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
-	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
-	<!--script src="js/less-1.3.3.min.js"></script-->
-	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
-	
+<!-- we used 'layoutit' to form an initial webpage and then edited it all to our liking -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 
@@ -26,7 +19,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="img/favicon.png">
-  	<!-- this connects the html to the rest of the code-->
+  	<!-- this connects the html to the rest of the code because we used a website creator tool first - then edited it-->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
@@ -69,7 +62,7 @@
 		<br>
 		<br>
 		<br>
-		
+		<!-- this is the search for location, code is in ratings.js but search links there -->
 		<div class="row clearfix">
 		<div class="col-md-6 column">
 			<h3>
@@ -86,8 +79,11 @@
 							</ul>
 						</li>
 					</ul>
+					<!-- search by postcode form -->
 					<form class="navbar-form navbar-left" role="search" action="map.html" method='GET'>
+						<!-- get adds poscode to end of url -->
 						<div class="form-group">
+							<!-- class ties css with html -->
 								<input type="text" name='postcode' class="form-control">
 						</div> <button type="submit" class="btn btn-default">Submit</button>
 					</form>
@@ -105,11 +101,12 @@
 			<h3>
 				search by food hygiene rating
 			</h3>
+			<!-- this is setting up the page layout -->
 			<nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
 				<div class="navbar-header">
 					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">search here!</a>
 				</div>
-				
+				<!-- for java script to refer to this element -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						
@@ -117,6 +114,7 @@
 							</ul>
 						</li>
 					</ul>
+					<!-- search by rating, links to hygiene.html and links to code in ratings.js-->
 					<form class="navbar-form navbar-left" role="search" action="hygiene.html" method='GET'>
 						<div class="form-group">
 							<input type="text" name='rating' class="form-control">
@@ -139,7 +137,7 @@
 		<br>
 		<br>
 
-			<!-- info about food hygiene here-->
+			<!-- info about food hygiene here with pic-->
 			<h2>
 				What is a food hygiene rating?
 			</h2>
@@ -158,12 +156,12 @@
 			</h2>
 			
 			<p>
-				Hmmmm... thats a hard one, as we dont fit in to one category :). We are a team of 4 girls enthusiastic about twisting ideas to make exciting new features. our 4 team members are... 
+				Hmmmm... that&rsquo;s a hard one, as we don&rsquo;t fit in to one category :). We are a team of 4 girls enthusiastic about twisting ideas to make exciting new features. Our 4 team members are... 
 
-				JO: some girl who is trying desperately to learn how to code, and still failing... wants to go into buisness. fllw her on twitter and instagram ---> @jo_jo_lol
-				ANNIE: 13 years old and had nothing to do on her summer holiday I decided to try something new. (she doesn't want you to follow her)
-				JACKY: parents made me come, actually finding this fun... (and thats Jacky for you)
-				AlEXA: too obsessed with friv to bother to write anything... (lol)
+				JO: Some girl who is trying desperately to learn how to code, and still failing... wants to go into business. Follow her on twitter and instagram ---> @jo_jo_lol
+				ANNIE: 13 years old and had nothing to do on her summer holiday and decided to try something new. (she doesn&rsquo;t want you to follow her)
+				JACKY: Parents made me come, actually finding this fun... (and that&rsquo;s Jacky for you)
+				AlEXA: 9 year old mini geek generously sucking in all she can get (and playing games but we skip over that point)
 			</p>
 			
 	</div>
